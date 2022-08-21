@@ -14,6 +14,14 @@ function deleteToDo(event){
     const li  = event.target.parentElement;
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //선택한 id에 대해 db에 있는 id와 비교하여 새로운 toDos를 만들어 줌
+    // 화살표 함수
+    /*function morethan2(potato){
+        return potato > 2
+    }
+    item => item > 2    
+    */
+   //toDo의 id가 li의 id와 다른 걸 남기고 싶음
+   //여기있는 todo는 todos DB에 있는 요소 중 하나임
     saveToDos();
 }
 

@@ -11,7 +11,7 @@
     - background
     - todo
     - weather
-- 어려웠던 점, 느낀점
+- 느낀점
 
 ------------------
 
@@ -99,7 +99,7 @@ body에 bgImage를 추가하여 배경이 보이도록 하였습니다.
 
 - ### todo  
 **toDos**  
-이전에 입력된 요소들을 저장하고 불러오기 위해 빈 배열을 만들었습니다.   
+let으로 변수를 설정하여 이전에 입력된 요소들을 저장하고 불러오기 위해 빈 배열을 만들었습니다.  
 
 **saveToDos**  
 브라우저에 정보를 저장할때 localStorage를 활용할 수 있습니다.  
@@ -112,20 +112,43 @@ addEventListnenr을 통해 함수를 실행시켜 삭제하는 역할을 합니�
 
 
 **deleteToDo**  
-target으로 parentElement를 통해 X표시가 눌려졌을때 어떤 위치에 X가 눌려졌는지 알 수 있습니다.  
-remove를 통해 특정된 li를 제거합니다.  
-
+target으로 parentElement를 통해 X표시가 눌려졌을때 어떤 위치에 X가 눌려졌는지 알 수 있습니다. remove로 li를 제거합니다(뒤에서 추가설정).  
 
 **handleToDoSubmit**  
 사용자가 form 을 submit하면 input을 비우고
 입력된 value를 toDos array에 push하고 newtodo를 array에 push한 후 paintToDo로 화면에 출력 후 saveToDos로 저장합니다.  
 
+
 **if문**  
 parse를 통해 배열로 바꿈
+    toDos = parsedToDos
+를 해줌으로써 새로고침시 savedToDos를 localStorage로부터 불러옴으로써 이전의 요소들을 저장함, 둘의 형식이 list이기 때문에 가능합니다.  
+forEach는 a, b, c 를 각각 입력하였을때 요소하나하나에 대해서 아래와 같이 실행하게 됩니다.  
+    paintToDo({text:"a", id:121212}), paintToDo(text:{"b"}, id:131313), paintToDo(text:{"c"}, id:141414)
+
+**delete with database**  
+삭제시 화면에서는 li를 특정하여 없앨 수 있었지만 localStorage의 정보는 그대로 남아있기 때문에 새로고침을 하게되면 원래대로 돌아오게 됩니다. localStorage에서 삭제를 하기 위해 객체로 value를 생성하고 각 value마다 id를 부여하여 value를 특정합니다. id 부여시 Date.now 를 사용하여 랜덤한 숫자를 뽑아내었습니다.  
+filter는 해당 함수를 실행시켜 true 반환시에만 값을 넘겨주게 되어 li.id를 특정하여 해당 id를 삭제 후 새로운 list를 만들어 저장하게됩니다.  
+pareseInt를 통해 숫자로 string을 숫자로 바꿔주어 값이 같을 경우 false를 반환하여 해당 값을 제거한 새로운 배열을 만들게 됩니다.  
 
 
+- #### weather  
+**geolocation**  
+geolocation을 통해 유저 위치를 얻어올 수 있습니다.  
+
+**UrlApi**  
+openweathermap 웹사이트를 통해 유저 위치기반으로 날씨정보를 제공받을 수 있습니다.  
+
+**fetch**  
+fetch api는 요청, 응답에 대해 js가 접근하고 비 동기적으로 조작할 수 있도록 합니다.  
+fetch는 promise로 당장 발생하는 것이 아닌 시간이 지난 후 발생하는 것입니다. 만약 서버에 요청하였는데 응답이 5분이 걸린다고 가정하면 기본적으로는 5분을 기다려야 합니다.  
+then이란 서버에서 데이터를 가져오는 작업(응답)이 돤료된 이후에 then의 인자에 들어있는 함수가 실행됩니다.  
+
+**promise, then**  
+promise - 비동기 코드가 끝나면 반환, 비동기 처리의 상태와 데이터를 담게 되어있습니다.  
+then - 비동기 처리가 끝난 다음에 처리할 일을 정의할 수 있습니다.  
 
 
-
-
-- #### weather
+### 느낀점  
+하나의 목표를 가지고 끝까지 완료를 해보니 개인적으로 코드 동작원리, 함수이해 등 여러방면에서 많이 부족함을 느꼈습니다.(사실 거의 모든 부분..) 대신 함수의 기능, 브라우저의 제어를 간단하게 구현하고 동작시켜봄으로써 JS를 통해 동적으로 사용자와 인터렉티브하게 작동할 수 있는점을 알 수 있었습니다.  
+가장 기본적인 투두리스트, api정보 받아오기였지만 의미있는 시간들을 보낸 것 같아 뿌듯하며 부족함을 느낀만큼 다음 코드를 만들때 지금의 실수를 하지 않고 더 빠르게 이해, 적용하여 읽기 좋은 코드를 위해 노력하겠습니다.
