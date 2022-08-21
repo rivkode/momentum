@@ -125,6 +125,7 @@ parse를 통해 배열로 바꿈
     toDos = parsedToDos
 를 해줌으로써 새로고침시 savedToDos를 localStorage로부터 불러옴으로써 이전의 요소들을 저장함, 둘의 형식이 list이기 때문에 가능합니다.  
 forEach는 a, b, c 를 각각 입력하였을때 요소하나하나에 대해서 아래와 같이 실행하게 됩니다.  
+
     paintToDo({text:"a", id:121212}), paintToDo(text:{"b"}, id:131313), paintToDo(text:{"c"}, id:141414)  
 
 **delete with database**  
