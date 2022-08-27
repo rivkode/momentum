@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57026579-ae2e-4947-8d04-aa9d381812b3/deploy-status)](https://app.netlify.com/sites/momentumriv/deploys)
+
 # momentum_web
 ---------------
 ## 목차
