@@ -1,6 +1,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/57026579-ae2e-4947-8d04-aa9d381812b3/deploy-status)](https://app.netlify.com/sites/momentumriv/deploys)
 
 # momentum_web
+
+노마드코더님의 [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners/lobby)를 통해 간단한 앱을 만들어 보았습니다.
+
 ---------------
 ## 목차
 - 1. 이 웹페이지를 만든 이유
