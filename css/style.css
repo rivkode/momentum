@@ -61,7 +61,6 @@ img.image {
 	left: 0;
 }
 
-
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
 	img.image {
 		left: 50%;
